@@ -1,76 +1,138 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import {
+    View,
+    Text,
+    Button,
+    TouchableOpacity,
+    Dimensions,
+    StyleSheet,
+    Image
+} from 'react-native';
+
+import * as Animatable from 'react-native-animatable';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 
 function HomeScreen(props) {
     return (
-        <View style = {styles.body}>
+        <View style = {styles.container}>
+            <View style = {styles.header}>
+                <Animatable.Image
+                    animation = "bounceInLeft" 
+                    duration = {2000}
+                    style = {styles.logo}
+                    resizeMode ='contain'
+                    source = {require('../assets/project1.png')}
+                />
+                
+            </View>
+            <Animatable.View
+                style = {styles.footer}
+                animation = "fadeInUp"
+                duration = {2000}
+             >
+                <Text style = {styles.title}>An app that never lets you doubt!</Text>
+                <Text style = {styles.text}>Sign in and Stay connected</Text>
+                <View style = {styles.button}>
+                    <TouchableOpacity
+                        activeOpacity={0.8}
+                        style={styles.signIn}
+                        onPress={() => {}}  >
+                        <Text style={styles.textSign}>Get Started</Text>
+                        <MaterialIcons 
+                            name = 'navigate-next'
+                            color = '#fff'
+                            size = {45}
+                        />
+                    </TouchableOpacity>
+                </View>
+                
+                
+                
+            </Animatable.View>
+
             
-            <Text style = {styles.text1}>Welcome </Text>
-            <Text style = {styles.text2}>to </Text>
-            <Text style = {styles.text3}>The Companion </Text>
-            <Image style = {styles.logo} source = {require('../assets/project1.png')}></Image>
-            <Text style = {styles.text4}>An app that</Text>
-            <Text style = {styles.text5}>never lets you doubt</Text>
+            
+            
         </View>
     );
 }
 
+export default HomeScreen;
+
+const {height} = Dimensions.get("screen");
+const height_logo = height * 2.8;
+
 const styles = StyleSheet.create({
-    body: {
-        backgroundColor: 'aquamarine'
+    
+    button: {
+        alignItems: 'flex-end',
+        marginRight: 10
     },
 
+    container: {
+        flex: 1,
+        backgroundColor: '#45a887'
+    },
+
+    footer: {
+        flex: 1,
+        backgroundColor: '#fff',
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        paddingBottom: 60
+    },
+
+    header: {
+        flex: 3,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    
     logo: {
         width: '100%',
-        height: '100%',
-        resizeMode: 'contain',
+        height: '100%', 
                 
     },
-    text1: {
-        fontSize: 40,
+
+    signIn: {
+        width: '60%',
+        backgroundColor: "#45a887",
+        paddingHorizontal: 30,
+        paddingVertical: 12,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        borderRadius: 30
+    },
+
+    title: {
+        fontSize: 30,
         fontWeight: 'bold',
-        position: 'absolute',
-        top: '5%',
-        left: '30%',         
+        marginTop: 20,
+        marginLeft: 20
+    },
+
+    text: {
+        fontSize: 15,
+        marginLeft: 20,
+        marginTop: 15,
+        marginBottom: 15
 
     },
-    text2: {
-        fontSize: 40,
+
+    textSign: {
+        fontSize: 25,
         fontWeight: 'bold',
-        position: 'absolute',
-        top: '10%',
-        left: '45%',         
-
+        color: "#fff",
+        justifyContent: 'flex-end',
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft: 0,
+        paddingRight: 0 
     },
-    text3: {
-        fontSize: 50,
-        fontWeight: 'bold',
-        position: 'absolute',
-        top: '15%',
-        left: '10%', 
-        letterSpacing: -2        
 
-    },
-    text4: {
-        fontSize: 40,
-        fontStyle: 'italic',
-        position: 'absolute',
-        letterSpacing: -2,
-        bottom: '15%',
-        left: '26%',      
+    
 
-    },
-    text5: {
-        fontSize: 40,
-        fontStyle: 'italic',
-        position: 'absolute',
-        letterSpacing: -2,
-        bottom: '8%',
-        left: '10%',
 
-            
 
-    }
 })
-
-export default HomeScreen;
