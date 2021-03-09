@@ -1,3 +1,4 @@
+import { useTheme } from '@react-navigation/native';
 import React from 'react';
 import {
     View,
@@ -13,7 +14,7 @@ import * as Animatable from 'react-native-animatable';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 
-function HomeScreen(props) {
+function HomeScreen({navigation}) {
     return (
         <View style = {styles.container}>
             <View style = {styles.header}>
@@ -22,7 +23,7 @@ function HomeScreen(props) {
                     duration = {2000}
                     style = {styles.logo}
                     resizeMode ='contain'
-                    source = {require('../assets/project1.png')}
+                    source = {require('../assets/logo.png')}
                 />
                 
             </View>
@@ -37,9 +38,10 @@ function HomeScreen(props) {
                     <TouchableOpacity
                         activeOpacity={0.8}
                         style={styles.signIn}
-                        onPress={() => {}}  >
+                        onPress={()=>navigation.navigate('SignInScreen')}
+                        >
                         <Text style={styles.textSign}>Get Started</Text>
-                        <MaterialIcons 
+                        <MaterialIcons style = {[styles.textSign, {marginTop: 6}]} 
                             name = 'navigate-next'
                             color = '#fff'
                             size = {45}
@@ -72,12 +74,12 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#45a887'
+        backgroundColor: '#fff'
     },
 
     footer: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#0cd490',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         paddingBottom: 60
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
 
     signIn: {
         width: '60%',
-        backgroundColor: "#45a887",
+        backgroundColor: "#fff",
         paddingHorizontal: 30,
         paddingVertical: 12,
         flexDirection: 'row',
@@ -123,7 +125,7 @@ const styles = StyleSheet.create({
     textSign: {
         fontSize: 25,
         fontWeight: 'bold',
-        color: "#fff",
+        color: "#000",
         justifyContent: 'flex-end',
         paddingTop: 5,
         paddingBottom: 5,
