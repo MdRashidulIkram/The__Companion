@@ -11,6 +11,7 @@ import {
     StatusBar
 } from 'react-native';
 
+
 import * as Animatable from 'react-native-animatable';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
@@ -75,6 +76,7 @@ function SignInScreen({navigation}) {
             <StatusBar backgroundColor = '#009387' barStyle= 'light-content'/>
             <View style = {styles.header}>
                 <Text style = {styles.text_header}>Register Below</Text>
+                <Text style = {styles.textDis}>Disclaimer: it's a task manager & not a therapeutic tool</Text>
             </View>
             <Animatable.View
                 animation = 'fadeInUpBig'
@@ -181,18 +183,18 @@ function SignInScreen({navigation}) {
 
                 </View>
                 
-                
+               
 
                 <View style = {styles.button}>
                     <TouchableOpacity
                         activeOpacity={0.8}
                         style={styles.signIn}
-                        onPress={()=> {}}
+                        onPress={()=>navigation.navigate('SignInScreen')}
                         >
                         <Text style={styles.textSign}>Register</Text>
                         
                     </TouchableOpacity>
-                </View>               
+                </View>                
             </Animatable.View>
         </View>
     );
@@ -270,5 +272,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#fff'
+    },
+
+    textDis: {
+        fontSize: 20,
+        marginTop: 30
     }
   });

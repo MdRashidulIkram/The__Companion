@@ -23,7 +23,7 @@ function HomeScreen({navigation}) {
                     duration = {2000}
                     style = {styles.logo}
                     resizeMode ='contain'
-                    source = {require('../assets/logo.png')}
+                    source = {require('../assets/LogoMain.png')}
                 />
                 
             </View>

@@ -129,6 +129,8 @@ function SignInScreen({navigation}) {
 
                 </View>
 
+               
+
                 <View style = {styles.button}>
                     <TouchableOpacity
                         activeOpacity={0.8}
