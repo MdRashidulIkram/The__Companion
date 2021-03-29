@@ -7,9 +7,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 
 function AddTaskPage({navigation}) {
-    const presshandler = () => {
-      navigation.navigate('Camera')
-    }
+    
     return (
         
             <View style={styles.container}> 
@@ -28,7 +26,7 @@ function AddTaskPage({navigation}) {
               </View>
               
             
-              <TouchableOpacity onPress = {presshandler}  style={styles.camlogo}>
+              <TouchableOpacity style={styles.camlogo}>
                 <View style= {styles.middle}>
                 <FontAwesome name = "camera" size={80} style={styles.cam}/>
                 </View>  
