@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Dimensions, Text, View, Image, Alert,Platform,TouchableOpacity} from 'react-native';
-import {useDimensions,useDeviceOrientation} from "@react-native-community/hooks";
 import Icon from "react-native-vector-icons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
