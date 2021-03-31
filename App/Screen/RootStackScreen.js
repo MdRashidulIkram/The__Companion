@@ -5,7 +5,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './HomeScreen';
 import SignInScreen from './SignInScreen';
 import SignUpScreen from './SignUpScreen';
+import Dashboard from './Dashboard';
 import AddTaskPage from './AddTaskPage';
+
 
 const RootStack = createStackNavigator();
 
@@ -15,6 +17,8 @@ const RootStackScreen = ({navigation}) => (
         <RootStack.Screen name="SignInScreen" component={SignInScreen}/>
         <RootStack.Screen name="SignUpScreen" component={SignUpScreen}/>
         <RootStack.Screen name="Dashboard" component={Dashboard}/>
+        <RootStack.Screen name="AddTaskPage" component={AddTaskPage}/>
+
         
         
     </RootStack.Navigator>
