@@ -62,7 +62,7 @@ function Dashboard({navigation}) {
                         style={[styles.signIn, {
                             flexDirection: 'column'
                         }]}
-                        onPress={()=>{}}  >
+                        onPress={()=> navigation.navigate('AddTaskPage')}  >
 
                         <Text style = {styles.textSign}>Add</Text>
                         

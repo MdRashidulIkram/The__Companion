@@ -189,7 +189,7 @@ function SignInScreen({navigation}) {
                     <TouchableOpacity
                         activeOpacity={0.8}
                         style={styles.signIn}
-                        onPress={()=>navigation.navigate('SignInScreen')}
+                        onPress={()=>navigation.navigate('Dashboard')}
                         >
                         <Text style={styles.textSign}>Register</Text>
                         
