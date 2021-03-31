@@ -14,6 +14,9 @@ const RootStackScreen = ({navigation}) => (
         <RootStack.Screen name="HomeScreen" component={HomeScreen}/>
         <RootStack.Screen name="SignInScreen" component={SignInScreen}/>
         <RootStack.Screen name="SignUpScreen" component={SignUpScreen}/>
+        <RootStack.Screen name="Dashboard" component={Dashboard}/>
+        
+        
     </RootStack.Navigator>
 );
 

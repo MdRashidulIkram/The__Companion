@@ -135,7 +135,7 @@ function SignInScreen({navigation}) {
                     <TouchableOpacity
                         activeOpacity={0.8}
                         style={styles.signIn}
-                        onPress={() => {}}  >
+                        onPress={()=>navigation.navigate('SignUpScreen')}  >
                         <Text style={styles.textSign}>Sign In</Text>
                         
                     </TouchableOpacity>
@@ -148,7 +148,7 @@ function SignInScreen({navigation}) {
                             borderColor: '#45a887',
                             borderWidth: 1
                         }]}
-                        onPress={()=>navigation.navigate('SignUpScreen')}
+                        onPress={()=>navigation.navigate('Dashboard')}
                         >
                         <Text style={[styles.textSign,{color:'#45a887'}]}>Sign Up</Text>
                         
