@@ -26,15 +26,15 @@ function AddTaskPage({navigation}) {
                     <Text style={styles.descriptiontext}>Add Description</Text>
                   </View>
                   
-                
-                  <TouchableOpacity style={styles.camlogo}>
+                  <TouchableOpacity onPress={()=>navigation.navigate('Camera')} style={styles.camlogo}>
                     <View style= {styles.middle}>
                       <FontAwesome name = "camera" size={80} style={styles.cam}/>
                     </View>  
                     <View style={styles.uploadphoto}>
                       <Text style={styles.uploadphototext}>Upload Photo</Text>
                     </View>
-                  </TouchableOpacity> 
+                  </TouchableOpacity>  
+                     
 
                   <View style={styles.donebox}>
                       <Text style={styles.done}>Done</Text>
