@@ -9,42 +9,50 @@ function AddTaskPage({navigation}) {
     
     return (
         
-            <View style={styles.container}> 
+            <View style={styles.container}>
+              <View style = {styles.header}>
+                <View>
+                  <Text style={styles.newtasktext}>Add New Task</Text>
         
-              <View>
-                <Text style={styles.newtasktext}>Add New Task</Text>
-     
-                 <View style={styles.line}></View>
-              </View>   
-              <View style={styles.description}>
-                 <View style={styles.descriptionbox}>
-                    <Text style={styles.descriptionplus}>+</Text>
-                 </View>
-       
-                <Text style={styles.descriptiontext}>Add Description</Text>
-              </View>
-              
-            
-              <TouchableOpacity style={styles.camlogo}>
-                <View style= {styles.middle}>
-                <FontAwesome name = "camera" size={80} style={styles.cam}/>
-                </View>  
-                <View style={styles.uploadphoto}>
-                <Text style={styles.uploadphototext}>Upload Photo</Text>
-                </View>
-              </TouchableOpacity>  
-                <View style={styles.donebox}>
-                    <Text style={styles.done}>Done</Text>
-                </View>
-              <View style={styles.icons}> 
+                  <View style={styles.line}></View>
+                </View>   
+
+                <View style = {styles.footer}>          
+                  <View style={styles.description}>
+                    <View style={styles.descriptionbox}>
+                        <Text style={styles.descriptionplus}>+</Text>
+                    </View>
+          
+                    <Text style={styles.descriptiontext}>Add Description</Text>
+                  </View>
+                  
                 
-                <View style={styles.homebox}>
-                <FontAwesome name="home" size={55} style={styles.homeicon}/> 
-                </View>
-                <View style={styles.userbox}>
-                <FontAwesome name="user" size={53} style={styles.usericon}/> 
-                </View>
-              </View>
+                  <TouchableOpacity style={styles.camlogo}>
+                    <View style= {styles.middle}>
+                      <FontAwesome name = "camera" size={80} style={styles.cam}/>
+                    </View>  
+                    <View style={styles.uploadphoto}>
+                      <Text style={styles.uploadphototext}>Upload Photo</Text>
+                    </View>
+                  </TouchableOpacity> 
+
+                  <View style={styles.donebox}>
+                      <Text style={styles.done}>Done</Text>
+                  </View>
+
+                  <View style={styles.icons}> 
+                    <View style={styles.homebox}>
+                      <FontAwesome name="home" size={55} style={styles.homeicon}/> 
+                    </View>
+                    <View style={styles.userbox}>
+                      <FontAwesome name="user" size={53} style={styles.usericon}/> 
+                    </View>
+                  </View>
+
+                </View> 
+              </View> 
+
+        
             </View> 
       
 
@@ -57,16 +65,15 @@ export default AddTaskPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1d212d',
+    justifyContent: 'center',
     alignItems : "center",
-    //flexDirection : "row"
+    backgroundColor: '#009387'
   },
   line: {
         backgroundColor: "aqua",
-        
-        width: "85%",
-        justifyContent: "center",
+        width: "100%",
         height:2,
+        marginBottom: 20
         
         
   },
@@ -79,7 +86,7 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     justifyContent: "center",
     marginTop: 10,
-    flex: 0.50
+    flex: 0.50,
   },
   cam : {
     justifyContent:"center",
@@ -87,8 +94,8 @@ const styles = StyleSheet.create({
   },
  
   newtasktext: {
-    justifyContent: "center",
-    marginTop: 60,
+    textAlign: 'center',
+    marginTop: 50,
     fontSize:40,
     color:"#3cf887"
   },
@@ -109,7 +116,7 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     marginRight: 10,
     alignContent: "center",
-    //margin: 6
+    
   },
   
   descriptionplus:{
@@ -152,36 +159,43 @@ const styles = StyleSheet.create({
       marginLeft: 25
   },
   usericon:{
-    color : "aqua",
-    //alignSelf: "center",
-    //alignItems: "center"
+    color : "#45a887",
+    
   },
   homeicon : {
-    color : "aqua",
-    //alignSelf: "center",
+    color : "#45a887",
     
-    marginBottom: 0
   },
-  homebox : {
-//     //backgroundColor : "blue",
-    width: "50%",
-    position: "absolute",
-    left: 100,
-    bottom: 5
+  homebox : { 
+    flex: 1,
+    // justifyContent: 'flex-start'
   },
    userbox: {
-//    // backgroundColor: "blue",
-    width : "50%",
-    justifyContent : "flex-end",
-    position: "absolute",
-    right: -40,
-    bottom: 5
+    // justifyContent : "flex-end"
+    
    },
   icons:{
     flexDirection: "row",
-    justifyContent: "space-evenly",
-    //flex: 0.8,
-    alignItems: "center",
-    marginBottom: 5
+        
+  },
+
+  header: {
+    flex: 1,
+    justifyContent: "flex-end",
+    paddingHorizontal: 25,
+    paddingBottom: 20
+  },
+
+  footer: {
+      flex: 1,
+      backgroundColor: '#fff',
+      borderTopLeftRadius: 30,
+      borderTopRightRadius: 30,
+      borderBottomRightRadius: 30,
+      borderBottomLeftRadius: 30,
+      paddingHorizontal: 60,
+      paddingVertical: 30,
+      justifyContent: 'center',
+      alignItems: 'center'
   }
 });
