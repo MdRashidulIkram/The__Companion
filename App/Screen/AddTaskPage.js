@@ -9,42 +9,61 @@ function AddTaskPage({navigation}) {
     
     return (
         
-            <View style={styles.container}> 
-        
-              <View>
-                <Text style={styles.newtasktext}>Add New Task</Text>
-     
-                 <View style={styles.line}></View>
-              </View>   
-              <View style={styles.description}>
-                 <View style={styles.descriptionbox}>
-                    <Text style={styles.descriptionplus}>+</Text>
-                 </View>
-       
-                <Text style={styles.descriptiontext}>Add Description</Text>
-              </View>
-              
-            
-              <TouchableOpacity onPress={()=>navigation.navigate('Camera')} style={styles.camlogo}>
-                <View style= {styles.middle}>
-                <FontAwesome name = "camera" size={80} style={styles.cam}/>
+            <View style={styles.container}>
+
+              <View style = {styles.header}>
+                <View>
+                  <Text style={styles.newtasktext}>Add New Task</Text>
+      
+                  <View style={styles.line}></View>
                 </View>  
-                <View style={styles.uploadphoto}>
-                <Text style={styles.uploadphototext}>Upload Photo</Text>
-                </View>
-              </TouchableOpacity>  
-                <View style={styles.donebox}>
-                    <Text style={styles.done}>Done</Text>
-                </View>
-              <View style={styles.icons}> 
+
+                <View style = {styles.footer}>
+                  <View style={styles.description}>
+                    <View style={styles.descriptionbox}>
+                        <Text style={styles.descriptionplus}>+</Text>
+                    </View>
+        
+                    <Text style={styles.descriptiontext}>Add Description</Text>
+                  </View>
                 
-                <View style={styles.homebox}>
-                <FontAwesome name="home" size={55} style={styles.homeicon}/> 
-                </View>
-                <View style={styles.userbox}>
-                <FontAwesome name="user" size={53} style={styles.usericon}/> 
-                </View>
-              </View>
+              
+                  <TouchableOpacity onPress={()=>navigation.navigate('Camera')} style={styles.camlogo}>
+                    <View style= {styles.middle}>
+                      <FontAwesome name = "camera" size={80} style={styles.cam}/>
+                    </View>  
+                    <View style={styles.uploadphoto}>
+                      <Text style={styles.uploadphototext}>Upload Photo</Text>
+                    </View>
+                  </TouchableOpacity>  
+                  <View style={styles.donebox}>
+                      <Text style={styles.done}>Done</Text>
+                  </View>
+                  <View style={styles.icons}> 
+                    
+                    <View style={styles.homebox}>
+                      <TouchableOpacity
+                        activeOpacity = {0.8}
+                        onPress={()=>navigation.navigate('Dashboard')}
+                      >
+                       <FontAwesome name="home" size={55} style={styles.homeicon}/> 
+                      </TouchableOpacity>
+                    </View>
+                    <View style={styles.userbox}>
+                      <TouchableOpacity
+                        activeOpacity = {0.8}
+                        onPress={()=>navigation.navigate('Dashboard')}
+                      >
+                       <FontAwesome name="user" size={53} style={styles.usericon}/> 
+                        
+                      </TouchableOpacity>
+                    </View>
+                  </View>  
+                </View> 
+                  
+              </View> 
+        
+              
             </View> 
       
 
@@ -57,23 +76,24 @@ export default AddTaskPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1d212d',
+    backgroundColor: '#009387',
     alignItems : "center",
-    //flexDirection : "row"
+    
   },
   line: {
-        backgroundColor: "aqua",
-        
-        width: "85%",
+        backgroundColor: "#fff",
+        width: "100%",
         justifyContent: "center",
-        height:2,
+        height:3,
+        marginBottom:5
         
         
   },
   camlogo: {
     justifyContent: "center",
     alignItems: "center",
-    flex: 1
+    flex: 1,
+    marginTop: 80
   },
   description : {
     flexDirection:"row",
@@ -90,7 +110,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 60,
     fontSize:40,
-    color:"#3cf887"
+    color:"#fff",
+    marginBottom: 40
   },
 
   middle: {
@@ -139,7 +160,7 @@ const styles = StyleSheet.create({
 
   donebox: {
       backgroundColor:"blue",
-      marginBottom: 120,
+      marginBottom: 70,
       width: 100,
       height:30,
       justifyContent: "center",
@@ -152,36 +173,50 @@ const styles = StyleSheet.create({
       marginLeft: 25
   },
   usericon:{
-    color : "aqua",
-    //alignSelf: "center",
-    //alignItems: "center"
+    color : "#3cf887",
+    
   },
   homeicon : {
-    color : "aqua",
-    //alignSelf: "center",
-    
-    marginBottom: 0
+    color : "#3cf887",
   },
   homebox : {
-//     //backgroundColor : "blue",
-    width: "50%",
-    position: "absolute",
-    left: 100,
-    bottom: 5
+    flex: 1,
+    marginBottom: 2
+
+    
+    
   },
    userbox: {
-//    // backgroundColor: "blue",
-    width : "50%",
-    justifyContent : "flex-end",
-    position: "absolute",
-    right: -40,
-    bottom: 5
+    marginBottom: 2
+        
    },
   icons:{
     flexDirection: "row",
     justifyContent: "space-evenly",
-    //flex: 0.8,
-    alignItems: "center",
-    marginBottom: 5
-  }
+    alignItems: "center"
+    
+  },
+
+  footer: {
+    flex: .9,
+    width: '90%',
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    borderBottomRightRadius: 30,
+    borderBottomLeftRadius: 30,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10
+},
+
+header: {
+    flex: 1,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#009387' 
+}
 });
