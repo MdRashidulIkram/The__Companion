@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Button } from 'react-native';
 import { Camera } from 'expo-camera';
 
-export default function Camera() {
+export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
 
@@ -21,10 +21,13 @@ export default function Camera() {
   }
   return (
     <View style={styles.container}>
-      <Camera style={styles.camera} type={type}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.button}
+      <View style={styles.camera}>
+        <Camera style={styles.fixedRatio} type={type} ratio={'1:1'}>
+        
+        </Camera>
+      </View>
+          <Button
+            title="Flip Image"
             onPress={() => {
               setType(
                 type === Camera.Constants.Type.back
@@ -32,10 +35,8 @@ export default function Camera() {
                   : Camera.Constants.Type.back
               );
             }}>
-            <Text style={styles.text}> Flip </Text>
-          </TouchableOpacity>
-        </View>
-      </Camera>
+          </Button>
+        
     </View>
   );
 }
@@ -47,19 +48,9 @@ const styles = StyleSheet.create({
   camera: {
     flex: 1,
   },
-  buttonContainer: {
-    flex: 1,
-    backgroundColor: 'transparent',
-    flexDirection: 'row',
-    margin: 20,
-  },
-  button: {
-    flex: 0.1,
-    alignSelf: 'flex-end',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 18,
-    color: 'white',
-  },
+ 
+  fixedRatio: {
+    flex:1,
+    aspectRatio:1
+  }
 });
