@@ -28,7 +28,7 @@ function AddTaskPage({navigation}) {
                   </View>
                 
               
-                  <TouchableOpacity onPress={()=>navigation.navigate('Camera')} style={styles.camlogo}>
+                  <TouchableOpacity onPress={()=>navigation.navigate('Cam')} style={styles.camlogo}>
                     <View style= {styles.middle}>
                       <FontAwesome name = "camera" size={80} style={styles.cam}/>
                     </View>  
