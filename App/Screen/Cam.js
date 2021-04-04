@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity,Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Button,Image } from 'react-native';
 import { Camera } from 'expo-camera';
 
 export default function Cam() {
   const [hasPermission, setHasPermission] = useState(null);
+  const [camera, setCamera] = useState(null);
+  const [image, setImage] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
 
   useEffect(() => {
@@ -13,6 +15,12 @@ export default function Cam() {
     })();
   }, []);
 
+  const takePicture = async () => {
+    if(camera){
+      const data = await camera.takePictureAsync(null);
+      setImage(data.uri);
+    }
+  }
   if (hasPermission === null) {
     return <View />;
   }
@@ -22,10 +30,14 @@ export default function Cam() {
   return (
     <View style={styles.container}>
       <View style={styles.camera}>
-        <Camera style={styles.fixedRatio} type={type} ratio={'1:1'}>
+        <Camera ref={ref => setCamera(ref)} style={styles.fixedRatio} type={type} ratio={'1:1'}>
         
         </Camera>
       </View>
+          <Button title="Take Picture" onPress={()=>takePicture()}>
+
+          </Button>
+
           <Button
             title="Flip Image"
             onPress={() => {
@@ -47,6 +59,7 @@ const styles = StyleSheet.create({
   },
   camera: {
     flex: 1,
+    
   },
  
   fixedRatio: {
