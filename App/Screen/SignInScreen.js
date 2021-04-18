@@ -25,6 +25,17 @@ function SignInScreen({navigation}) {
         secureTextEntry: true
 
     });
+
+    const loginUser = () => {
+        try {
+            firebase.auth().signInWithEmailAndPassword(data.email, data.password).then(function(user){
+                console.log(user)
+            })
+        } catch (error) {
+            console.log(error.toString(error))
+        }
+    }
+
     const textInputChange = (value) => {
         if(value.length != 0){
             setData({
@@ -135,7 +146,7 @@ function SignInScreen({navigation}) {
                     <TouchableOpacity
                         activeOpacity={0.8}
                         style={styles.signIn}
-                        onPress={()=>navigation.navigate('Dashboard')}  >
+                        onPress={()=>loginUser(data.email, data.password)}  >
                         <Text style={styles.textSign}>Sign In</Text>
                         
                     </TouchableOpacity>
