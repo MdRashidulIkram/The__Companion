@@ -32,8 +32,13 @@ var firebaseConfig = {
     messagingSenderId: "350737037717",
     appId: "1:350737037717:web:0eb027b50e54a721065e9c"
   };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+    // Initialize Firebase
+    if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+    }
+    else {
+        firebase.app(); // if already initialized, use that one
+    }
 
 function SignInScreen({navigation}) {
     const [data, setData] = React.useState({
@@ -90,30 +95,29 @@ function SignInScreen({navigation}) {
     }
 
     const signUpUser = () => {
+        if (data.password.length > 0 && data.email.length > 0 && data.confirm_password.length > 0){
+            try {
+                if (data.password.length < 6){
+                    alert("Please enter at least 6 characters for password")
+                    return;
+                }
 
-        try {
-            if (data.password.length < 6){
-                alert("Please enter at least 6 characters")
-                return;
+                if (data.password != data.confirm_password){
+                    alert("Passwords do not match")
+                    return;
+                }
+    
+                firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
             }
-
-            firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
+            catch (error){
+                
+                console.log(error.message)
+            }
         }
-        catch (error){
-            
-            console.log(error.message)
-        }
+        
     }
 
-    const loginUser = () => {
-        try {
-            firebase.auth().signInWithEmailAndPassword(data.email, data.password).then(function(user){
-                console.log(user)
-            })
-        } catch (error) {
-            console.log(error.toString(error))
-        }
-    }
+ 
     return (
         <View style = {styles.container}>
             <StatusBar backgroundColor = '#009387' barStyle= 'light-content'/>
