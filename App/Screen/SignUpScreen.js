@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
@@ -17,6 +17,23 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Feather from 'react-native-vector-icons/Feather'
 import { color } from 'react-native-reanimated';
+
+import firebase from "firebase";
+
+
+
+
+
+var firebaseConfig = {
+    apiKey: "AIzaSyAVSr920c7dvYW61y6vq0rRRZeF42IGd50",
+    authDomain: "thecompanion-6b1c2.firebaseapp.com",
+    projectId: "thecompanion-6b1c2",
+    storageBucket: "thecompanion-6b1c2.appspot.com",
+    messagingSenderId: "350737037717",
+    appId: "1:350737037717:web:0eb027b50e54a721065e9c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
 function SignInScreen({navigation}) {
     const [data, setData] = React.useState({
@@ -70,6 +87,32 @@ function SignInScreen({navigation}) {
             ...data,
             confirm_secureTextEntry: !data.confirm_secureTextEntry
         });
+    }
+
+    const signUpUser = () => {
+
+        try {
+            if (data.password.length < 6){
+                alert("Please enter at least 6 characters")
+                return;
+            }
+
+            firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
+        }
+        catch (error){
+            
+            console.log(error.message)
+        }
+    }
+
+    const loginUser = () => {
+        try {
+            firebase.auth().signInWithEmailAndPassword(data.email, data.password).then(function(user){
+                console.log(user)
+            })
+        } catch (error) {
+            console.log(error.toString(error))
+        }
     }
     return (
         <View style = {styles.container}>
@@ -189,12 +232,16 @@ function SignInScreen({navigation}) {
                     <TouchableOpacity
                         activeOpacity={0.8}
                         style={styles.signIn}
-                        onPress={()=>navigation.navigate('Dashboard')}
+                        onPress={()=>signUpUser(data.email,data.password)}
                         >
                         <Text style={styles.textSign}>Register</Text>
                         
                     </TouchableOpacity>
-                </View>                
+                </View>  
+
+                <View style = {styles.action}>
+                    <Text style={styles.baseText}>Already have an account? <Text style={styles.innerText} onPress={() => navigation.navigate('SignInScreen')} > Sign In</Text></Text>
+                    </View>              
             </Animatable.View>
         </View>
     );
@@ -212,6 +259,12 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         paddingHorizontal: 20,
         paddingBottom: 50
+    },
+    innerText: {
+        color: 'green'
+    },
+    baseText: {
+        color: 'black'
     },
     footer: {
         flex: 3,

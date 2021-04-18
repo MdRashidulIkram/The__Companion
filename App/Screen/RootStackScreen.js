@@ -8,6 +8,7 @@ import SignUpScreen from './SignUpScreen';
 import Dashboard from './Dashboard';
 import AddTaskPage from './AddTaskPage';
 import Cam from './Cam';
+import TestSignUpScreen from './TestSignUpScreen'
 
 const RootStack = createStackNavigator();
 
