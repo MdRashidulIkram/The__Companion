@@ -18,7 +18,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Feather from 'react-native-vector-icons/Feather'
 import { color } from 'react-native-reanimated';
 
-import firebase from "firebase";
+import firebase from "../firebase";
 
 
 
