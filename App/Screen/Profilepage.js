@@ -107,7 +107,7 @@ function Profilepage({ navigation }) {
               activeOpacity={0.8}
               onPress={() => navigation.navigate("Profilepage")}
             >
-              <FontAwesome name="user" size={45} style={styles.usericon} />
+              <FontAwesome name="user" size={50} style={styles.usericon} />
             </TouchableOpacity>
           </View>
         </View>

@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
   descriptiontext: {
     justifyContent: "center",
     fontSize: 30,
-    color: "#3cf887",
+    color: "#16c991",
   },
   uploadphoto: {
     marginTop: 5,
@@ -150,24 +150,25 @@ const styles = StyleSheet.create({
   },
 
   donebox: {
-    backgroundColor: "blue",
-    marginBottom: 70,
+    backgroundColor: "#000",
+    marginBottom: 80,
     width: 100,
     height: 30,
     justifyContent: "center",
     marginTop: 20,
+    borderRadius: 7,
   },
   done: {
-    color: "white",
+    color: "#3cf887",
     textAlignVertical: "center",
     fontSize: 20,
     marginLeft: 25,
   },
   usericon: {
-    color: "#3cf887",
+    color: "#16c991",
   },
   homeicon: {
-    color: "#3cf887",
+    color: "#16c991",
   },
   homebox: {
     flex: 1,
