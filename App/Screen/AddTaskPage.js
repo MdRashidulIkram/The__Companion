@@ -1,12 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Dimensions, Text, View, Image, Alert,Platform,TouchableOpacity} from 'react-native';
 import Icon from "react-native-vector-icons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 
 function AddTaskPage({navigation}) {
-    
+    const [task,setTask] = useState('');
+    const navTaskList = () => {
+      navigation.navigate('TaskList',{item:task});
+    }
     return (
         
             <View style={styles.container}>
@@ -27,7 +30,9 @@ function AddTaskPage({navigation}) {
                     <Text style={styles.descriptiontext}>Add Description</Text>
                   </View>
                 
-              
+                  <KeyboardAvoidingView>
+                    <TextInput style={styles.input} placeholder={'Write task...'} value={task} onChangeText={text=>setTask(text)}></TextInput> 
+                  </KeyboardAvoidingView>
                   <TouchableOpacity onPress={()=>navigation.navigate('Cam')} style={styles.camlogo}>
                     <View style= {styles.middle}>
                       <FontAwesome name = "camera" size={80} style={styles.cam}/>
