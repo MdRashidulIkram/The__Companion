@@ -108,6 +108,7 @@ function SignInScreen({navigation}) {
                 }
     
                 firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
+                navigation.navigate('Dashboard')
             }
             catch (error){
                 
